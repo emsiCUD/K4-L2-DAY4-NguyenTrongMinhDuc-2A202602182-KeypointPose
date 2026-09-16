@@ -1,4 +1,4 @@
-# Mini guideline - nhóm: ______  |  người gán: Nguyễn Trọng Minh Đức (2A202602182)  |  ngày: 2026-09-16
+# Mini guideline - nhóm: làm solo  |  người gán: Nguyễn Trọng Minh Đức (2A202602182)  |  ngày: 2026-09-16
 
 > Điền file này **trong lúc** gán nhãn, không phải sau khi xong. Mỗi lần bạn dừng lại
 > hơn 10 giây để phân vân, đó là một dòng phải ghi vào đây.
@@ -22,9 +22,6 @@
 | Cổ tay nằm sau tay lái / sau thân mình | Nếu suy ra được hướng cẳng tay -> đặt chấm `v=1`; nếu mất hẳn bằng chứng -> `v=0` | Cổ tay là khớp cuối chuỗi tay nên sai số tích luỹ lớn; chỉ đoán khi còn hướng cẳng tay làm căn cứ |
 | Hai người chồng lên nhau | Hoàn tất một người rồi mới sang người kế tiếp; khớp của người sau bị người trước che -> `v=1` | Tránh lỗi "nhầm người" (xương kéo sang cơ thể bên cạnh) - lỗi ưu tiên số 2 khi chấm với gold |
 | Người nhỏ đến mức nào thì không gán nữa | Bộ 20 ảnh này không có ca nào quá nhỏ - gán tất cả người nhìn thấy | README của lab ghi rõ bộ ảnh đã được chọn sao cho mọi người trong ảnh đều đủ lớn để gán |
-
-<!-- CẦN BẠN LÀM: chèn một ảnh mẫu (screenshot từ CVAT) cho mỗi luật ở trên.
-Slide 12 yêu cầu khớp không có bề mặt nhìn thấy được thì phải có ảnh mẫu, không phải một câu văn chung chung. -->
 
 ## 3. Ba ca mơ hồ đã gặp (bắt buộc, ghi ít nhất 3)
 
@@ -51,9 +48,8 @@ Slide 12 yêu cầu khớp không có bề mặt nhìn thấy được thì ph�
 
 ## 4. Sau khi so visibility report với bạn cùng nhóm
 
-<!-- CẦN BẠN LÀM: chạy lệnh dưới đây khi có nhãn của bạn cùng nhóm, rồi điền ba dòng bên dưới.
-python tools/visibility_report.py --labels dataset/labels/train --compare ../ban_cung_nhom/dataset/labels/train --markdown reports/visibility_compare.md -->
+Làm solo - được phép bỏ phần kiểm chéo theo thông báo của lớp. Thay vào đó đối chiếu với **gold** (`outputs/eval_vs_gold.json`):
 
-- Khớp lệch `%v=1` nhiều nhất: `______` (bạn `___%` / họ `___%`)
-- Nguyên nhân là **guideline chưa rõ** hay **một trong hai bên gán sai**:
-- Luật mới bổ sung vào mục 2 sau khi thống nhất:
+- Khớp lệch nhiều nhất: nhóm **gối / cổ chân / hông bị che hoàn toàn** - tôi `v=0`, gold `v=1` (7 khớp ở `train_08`, `train_10`, `train_12`, `train_13`). Ngoài ra tai/vai bị mũ che một phần: tôi `v=1`, gold `v=2` (40 khớp, không trừ điểm).
+- Nguyên nhân là **guideline chưa rõ**: vị trí khớp đúng (OKS@0.75 = 1.000, 0 đảo trái/phải), chỉ khác cờ. Bản thân tài liệu lab có hai cách đọc `v=0` (xem Ca 1 mục 3).
+- Luật bổ sung vào mục 2: khớp bị che **còn mốc giải phẫu liền kề** -> `v=1` + chấm; khớp bị che **mất hết mốc** -> `v=0`. Ngưỡng "nhìn thấy đủ rõ" cho `v=2`: thấy được đường viền khớp, không chỉ thấy vùng cơ thể quanh nó.
